@@ -72,7 +72,7 @@ class block_moodletestblock extends block_list {
 
             $activity_details[$cm->id]['id'] =  $cm->id;
             $activity_details[$cm->id]['modname'] =  $cm->modname;
-
+            $activity_details[$cm->id]['name'] =  $cm->name;
            
             $this->load_completions();
             if($this->completions[$course->id][$cm->id]==1){
@@ -93,10 +93,10 @@ class block_moodletestblock extends block_list {
             
             if ($modname === 'resources') {
                 $icon = $OUTPUT->pix_icon('monologo', '', 'mod_page', array('class' => 'icon'));
-                $this->content->items[] = '<a href="'.$CFG->wwwroot.'/course/resources.php?id='.$course->id.'">'.$icon.$single_activity['id'].'-'.$single_activity['modname'].'-'.$single_activity['created_on'].'</a>-'.$single_activity['completion_status'];
+                $this->content->items[] = '<a href="'.$CFG->wwwroot.'/course/resources.php?id='.$course->id.'">'.$icon.$single_activity['id'].'-'.$single_activity['name'].'-'.$single_activity['created_on'].'</a>-'.$single_activity['completion_status'];
             } else {
                 $icon = $OUTPUT->image_icon('monologo', get_string('pluginname', $single_activity['modname']), $single_activity['modname']);
-                $this->content->items[] = '<a href="'.$CFG->wwwroot.'/mod/'.$single_activity['modname'].'/index.php?id='.$course->id.'">'.$icon.$single_activity['id'].'-'.$single_activity['modname'].'-'.$single_activity['created_on'].'</a>-'.$single_activity['completion_status'];
+                $this->content->items[] = '<a href="'.$CFG->wwwroot.'/mod/'.$single_activity['modname'].'/index.php?id='.$course->id.'">'.$icon.$single_activity['id'].'-'.$single_activity['name'].'-'.$single_activity['created_on'].'</a>-'.$single_activity['completion_status'];
             }
         }
 
